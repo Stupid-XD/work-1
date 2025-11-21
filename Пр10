@@ -1,0 +1,43 @@
+#include <iostream>
+#include <random>
+using namespace std;
+
+int main()	{
+	setlocale(0, "");
+	int choise;
+	int attemps = 5;
+	int win_numbers = 0;
+	int num;
+	cout << "[1]Начать игру" << endl;
+	cout << "[2]Выйти" << endl;
+	cin >> choise;
+	if (choise == 1) {
+		while (attemps > 0) {
+			cout << "Угаданных чисел: [" << win_numbers << "/3]" << endl;
+			cout << "Попыток: [" << attemps << "]" << endl;
+			cout << "Попробуйте угадать: " << endl;
+			cin >> num;
+			int ran = 1 + rand() % 10;
+			if (num > 10 or num < 0) {
+				cout << "Ошибка,введите число в диапазоне[0-10]" << endl;
+			}
+			attemps--;
+			if (num == ran) {
+				win_numbers++;
+			}
+			if (win_numbers == 3) {
+				cout << "Поздравляю, вы угадали все 3 числа!" << endl;
+				return 0;
+			}
+		}
+		if (attemps == 0) {
+			cout << "Угаданных чисел: [" << win_numbers << "/3]" << endl;
+			cout << "Попыток: [" << attemps << "]" << endl;
+			cout << "Попытки кончились! Вы проиграли!" << endl;
+		}
+	}
+	if (choise != 1) {
+		cout << "Завершение программы" << endl;
+		return 0;
+	}
+}
