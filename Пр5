@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+
+int main() {
+	setlocale(0, "");
+	int number;
+	int number1;
+	int operation;
+	int answer;
+
+	cout << "1|Складывание" << endl;
+	cout << "2|Вычитание" << endl;
+	cout << "3|Деление" << endl;
+	cout << "4|Умножение" << endl;
+	cout << "5|Деление от остатка" << endl;
+
+	cout << "Введите два числа: " << endl;
+	cin >> number;
+	cin >> number1;
+	cout << "Введите номер операции: " << endl;
+	cin >> operation;
+	
+	if (operation == 1) {
+		answer = number + number1;
+		cout << answer << endl;
+		return 0;
+	}
+	if (operation == 2) {
+		answer = number - number1;
+		cout << answer << endl;
+		return 0;
+	}
+	if (operation == 3) {
+		answer = number / number1;
+		cout << answer << endl;
+		return 0;
+	}
+	if (operation == 4) {
+		answer = number * number1;
+		cout << answer << endl;
+		return 0;
+	}
+	if (operation == 5) {
+		answer = number % number1;
+		cout << answer << endl;
+		return 0;
+
+	}
+
+	return 0;
+
+}
