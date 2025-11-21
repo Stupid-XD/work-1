@@ -1,0 +1,96 @@
+#include <iostream>
+
+using namespace std;
+
+
+int main() {
+	setlocale(0, "");
+	int per;
+	int per1;
+	cout << "Переводчик" << endl << "[1]Русские слова" << endl << "[2]Английские слова" << endl << "[3]Выйти" << endl;
+	cin >> per;
+	switch (per) {
+	case 1: cout << "[1]Дом" << endl << "[2]Собака" << endl << "[3]Страница" << endl << "[4]Книга" << endl << "[5]Нож" << endl << "[6]Куб" << endl << "[7]Кошка" << endl << "[8]Кнопка" << endl << "[9]Окно" << endl;
+		cout << "[10]Машина" << endl << "[11]Звук" << endl << "[12]Число" << endl << "[13]Привет" << endl << "[14]Человек" << endl << "[15]Дерево" << endl;
+		cin >> per1;
+		switch (per1) {
+		case 1: cout << "[1]House" << endl;
+			break;
+		case 2: cout << "[2]Dog" << endl;
+			break;
+		case 3: cout << "[3]Page" << endl;
+			break;
+		case 4: cout << "[4]Book" << endl;
+			break;
+		case 5: cout << "[5]Knife" << endl;
+			break;
+		case 6: cout << "[6]Cube" << endl;
+			break;
+		case 7: cout << "[7]Cat" << endl;
+			break;
+		case 8: cout << "[8]Button" << endl;
+			break;
+		case 9: cout << "[9]Window" << endl;
+			break;
+		case 10: cout << "[10]Car" << endl;
+			break;
+		case 11: cout << "[11]Sound" << endl;
+			break;
+		case 12: cout << "[12]Number" << endl;
+			break;
+		case 13: cout << "[13]Hello" << endl;
+			break;
+		case 14: cout << "[14]Man" << endl;
+			break;
+		case 15: cout << "[15]Tree" << endl;
+			break;
+		default: cout << "Неверно введен номер слова" << endl;
+			break;
+			return 0;
+		}
+		break;
+	case 2: cout << "[1]House" << endl << "[2]Dog" << endl << "[3]Page" << endl << "[4]Book" << endl << "[5]Knife" << endl << "[6]Cube" << endl << "[7]Cat" << endl << "[8]Button" << endl << "[9]Window" << endl;
+		cout << "[10]Car" << endl << "[11]Sound" << endl << "[12]Number" << endl << "[13]Hello" << endl << "[14]Man" << endl << "[15]Tree" << endl;
+		cin >> per1;
+		switch (per1) {
+		case 1: cout << "[1]Дом" << endl;
+			break;
+		case 2: cout << "[2]Собака" << endl;
+			break;
+		case 3: cout << "[3]Страница" << endl;
+			break;
+		case 4: cout << "[4]Книга" << endl;
+			break;
+		case 5: cout << "[5]Нож" << endl;
+			break;
+		case 6: cout << "[6]Куб" << endl;
+			break;
+		case 7: cout << "[7]Кошка" << endl;
+			break;
+		case 8: cout << "[8]Кнопка" << endl;
+			break;
+		case 9: cout << "[9]Окно" << endl;
+			break;
+		case 10: cout << "[10]Машина" << endl;
+			break;
+		case 11: cout << "[11]Звук" << endl;
+			break;
+		case 12: cout << "[12]Число" << endl;
+			break;
+		case 13: cout << "[13]Привет" << endl;
+			break;
+		case 14: cout << "[14]Человек" << endl;
+			break;
+		case 15: cout << "[15]Дерево" << endl;
+			break;
+		default: cout << "Неверно введен номер слова" << endl;
+			break;
+			return 0;
+		}
+		break;
+
+
+	default: cout << "Завершение программы" << endl;
+	}
+	return 0;
+}
