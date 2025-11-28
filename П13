@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void clearConsole() {
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+}
+
+void drawLine() {
+	int size;
+	char texture;
+
+	cout << "Размер: ";
+	cin >> size;
+	cout << "Текстура: ";
+	cin >> texture;
+
+	cout << "Результат: \n";
+	for (int i = 0; i < size; i++) {
+		cout << texture;
+	}
+	cout << endl;
+}
+
+void drawSquare() {
+	int type, size;
+	char texture;
+
+	cout << "Тип квалрата:\n";
+	cout << "1. Заполненый\n";
+	cout << "2. Пустой\n";
+	cout << "Выберите тип:\n";
+	cin >> type;
+
+	cout << "Размер: ";
+	cin >> size;
+	cout << "Текстура: ";
+	cin >> texture;
+
+	cout << "Результат:\n";
+
+	if (type == 1) {
+
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				cout << texture;
+			}
+			cout << endl;
+		}
+	}
+	else {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j, size; j++) {
+				if (i == 0 || i == size - 1 || j == 0 || j == size - 1) {
+					cout << texture;
+				}
+				else {
+					cout << " ";
+				}
+			}
+			cout << endl;
+		}
+	}
+}
+
+int main() {
+	int choice;
+
+	while (true) {
+		cout << "Геометрические фигуры\n\n";
+		cout << "1. Линия\n";
+		cout << "2. Квардрат\n";
+		cout << "3. Выйти\n";
+		cout << "Выберите фигуру: ";
+		cin >> choice;
+
+		if (choice == 3) break;
+
+		clearConsole();
+
+		if (choice == 1) {
+			cout << "Фигура: \"Линия\"\n\n";
+			drawLine();
+		} else if (choice == 2) {
+			cout << "Фигура: \"Квадрат\"\n\n";
+			drawSquare();
+		}
+		cout << "\nНажмите Enter для продолженния...";
+		cin.ignore();
+		cin.get();
+		clearConsole();
+
+
+	}
+	return 0;
+}
