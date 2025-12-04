@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	int num;
+	int count = 0;
+	int sum = 0;
+
+	cout << "введите последовательность положительных чисел:" << endl;
+
+	cout << "[+] введите число: ";
+	cin >> num;
+
+	while (num != 0) {
+		if (num > 0) {
+			count++;
+			sum += num;
+		}
+		else {
+			cout << "введите только положительные числа" << endl;
+		}
+		cout << "[+] введите число: ";
+		cin >> num;
+	}
+	cout << "\n[+] количество чисел: ";
+	cout << "[+] сумма: " << sum << endl;
+
+	return 0;
+	int _; cin >> _;
