@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	int num;
+
+	cout << "введите число: ";
+	cin >> num;
+
+	if (num <= 0) {
+		cout << "введите положительное число" << endl;
+		return 1;
+	}
+
+	int counter = num;
+	while (counter >= 1) {
+		cout << "отчёт: " << counter << endl;
+		counter--;
+	}
+	cout << "старт!" << endl;
+
+	return 0;
+
+	int _; cin >> _;
+}
