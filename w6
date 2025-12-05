@@ -1,0 +1,28 @@
+#include <iostream> 
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	int number;
+	int sum = 0;
+	int count = 0;
+
+	do {
+		cout << "[+] введите число: ";
+		cin >> number;
+
+		if (number != 0) {
+			sum += number;
+			count++;
+		}
+	} while (number != 0);
+
+	if (count > 0) {
+		double average = static_cast<double>(sum) / count;
+		cout << "[+] среднеее арифметическое: " << average << endl;
+	}
+	else {
+		cout << "[+] не было введено чисел для вычисления" << endl;
+	}
+	return 0;
+}
