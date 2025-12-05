@@ -1,0 +1,21 @@
+#include <iostream> //w5
+using namespace std;
+
+int main() {
+		setlocale(0, "");
+		int number;
+		int conter = 1;
+
+		cout << "[*] введите число: ";
+		cin >> number;
+
+		while (conter <= 10) {
+			cout << "[+]" << number << "*" << conter << " = " << number * conter << endl;
+			conter++;
+
+
+		}
+			
+
+		return 0;
+}
