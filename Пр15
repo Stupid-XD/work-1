@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int choice;
+    int type;
+    int size;
+    char texture;
+
+    cout << "[+] Программа - “Геометрические фигуры”" << endl;
+    cout << "[1] Линия" << endl;
+    cout << "[2] квадрат" << endl;
+    cout << "[3] прямоугольник" << endl;
+    cout << "[4] треугольник" << endl;
+    cout << "[+] выберите фигуру: ";
+    cin >> choice;
+
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+
+    if (choice != 4) {
+        cout << "в данной ревлизации только треугольник" << endl;
+        return 0;
+    }
+    cout << "[+] Программа - “Геометрические фигуры”" << endl;
+    cout << "[1] заполненый" << endl;
+    cout << "[2] пустой" << endl;
+    cout << "[+] выберите номер: ";
+    cin >> type;
+
+    cout << "[+] размер: ";
+    cin >> size;
+    cout << "[+] текстура: ";
+    cin >> texture;
+
+
+    cin.ignore(numeric_limits <streamsize>::max(), '\n');
+
+    cout << endl << "[+] результат: " << endl << endl;
+
+    if (type == 1) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                cout << " ";
+            }
+            for (int j = 0; j < 2 * i + 1; j++) {
+                cout << texture;
+            }
+            cout << endl;
+        }
+    }
+    else if (type == 2) {
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                cout << " ";
+            }
+            for (int j = 0; j < 2 * i + 1; j++) {
+                if (i = size - 1 || j == 0 || j == 2 * i) {
+                    cout << texture;
+                }
+                else {
+                    cout << " ";
+                }
+            }
+            cout << endl;
+        }
+    }
+    else
+    {
+        cout << "неверный тип треугольника" << endl;
+    }
+    cout << endl << "нажмите Enter для выхода";
+    cin.get();
+
+    return 0;
+
+
+
+
+}
