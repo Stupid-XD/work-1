@@ -1,0 +1,171 @@
+#include <string>
+#include <limits>
+#include <iostream>
+using namespace std;
+
+void clearScrean() {
+	for (int i = 0; i < 50; i++) {
+		cout << endl;
+	}
+}
+
+void drawLine() {
+	int size;
+	char texture;
+
+	cout << "\n[+] Фигруа: Линия" << endl;
+	cout << "[+]Размер: ";
+	cin >> size;
+	cout << "[+] Текстура: ";
+	cin >> texture;
+
+	cout << "\n[+] Результат:" << endl;
+	for (int i = 0; i < size; i++) {
+		cout << texture;
+	}
+}
+
+void drawSpuare() {
+	int size;
+	char texture;
+
+	cout << "\n[+] Фигруа: Квадрат" << endl;
+	cout << "[+]Размер: ";
+	cin >> size;
+	cout << "[+] Текстура: ";
+	cin >> texture;
+
+	cout << "\n[+] Результат:" << endl;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+		}
+
+			cout << texture << " ";
+		
+	}
+
+}
+
+void drawRectangle() {
+	int width, height;
+	char texture;
+
+	cout << "\n[+] Фигруа: Прямоугольник" << endl;
+	cout << "[+]Ширина: ";
+	cin >> width;
+	cout << "[+]Высота: ";
+	cin >> height;
+	cout << "[+] Текстура: ";
+	cin >> texture;
+
+	cout << "\n[+] Результат:" << endl;
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+
+		}
+			cout << texture << " ";
+		
+	}
+}
+
+void drawTriandle() {
+	int size;
+	char texture;
+
+	cout << "\n[+] Фигруа: Треугольник" << endl;
+	cout << "[+]Размер: ";
+	cin >> size;
+	cout << "[+] Текстура: ";
+	cin >> texture;
+
+	cout << "\n[+] Результат:" << endl;
+	for (int i = 0; i <= size; i++) {
+		for (int j = 0; j < i; j++) {
+		}
+
+		cout << texture << " ";
+
+	}
+
+}
+
+void drawGrid() {
+	int size;
+	char texture;
+
+	cout << "\n[+] Фигруа: Решётка" << endl;
+	cout << "[+]Размер: ";
+	cin >> size;
+	cout << "[+] Текстура: ";
+	cin >> texture;
+
+	cout << "\n[+] Результат:" << endl;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			if ((i + j) % 2 == 0) {
+				cout << texture << " ";
+			}
+			else {
+				cout << ". ";
+			}
+		}
+		cout << endl;
+	}
+}
+
+int main() {
+	setlocale(0, "");
+	int choice;
+
+	do {
+		clearScrean();
+
+		cout << "[+] Прогармма - Геометрические фигуры" << endl;
+		cout << endl;
+		cout << "[1] Линия" << endl;
+		cout << "[2] Квадрат" << endl;
+		cout << "[3] Прямоугольник" << endl;
+		cout << "[4] Треугольник" << endl;
+		cout << "[5] Решётка" << endl;
+		cout << "[0] Выход" << endl;
+		cout << endl;
+		cout << "[+] Выберите фигуру: ";
+		cin >> choice;
+
+		if (choice == 0) {
+			cout << "Выход из программы..." << endl;
+			break;
+		}
+
+		clearScrean();
+
+		switch (choice) {
+		case 1:
+			drawLine();
+			break;
+		case 2:
+			drawSpuare();
+			break;
+		case 3:
+			drawRectangle();
+			break;
+		case 4:
+			drawTriandle();
+			break;
+		case 5:
+			drawGrid();
+			break;
+		default:
+			cout << "неверный выбор!" << endl;
+		
+		}
+
+		if (choice >= 1 && choice <= 5) {
+			cout << "\n\nНажмите Enter для продолжения...";
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin.get();
+		}
+	} while (choice != 0);
+
+		return 0;
+}
