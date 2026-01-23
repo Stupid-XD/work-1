@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int size;
+    char symbol;
+
+    cout << "Фигура: \"Ромб\"" << endl;
+
+    cout << "Размер: ";
+    cin >> size;
+
+    cout << "Текстура: ";
+    cin >> symbol;
+
+    cout << "\nРезщультат:\n";
+
+    for (int i = 1; i <= size; i++) {
+        for (int j = 1; j <= size - i; j++) {
+            cout << " ";
+        }
+        for (int j = 1; j <= 2 * i - 1; j++) {
+            cout << symbol;
+        }
+        cout << endl;
+    }
+
+    for (int i = size - 1; i >= 1; i--) {
+        for (int j = 1; j <= size - i; j++) {
+            cout << " ";
+        }
+
+        for (int j = 1; j <= 2 * i - 1; j++) {
+            cout << symbol;
+        }
+        cout << endl;
+    }
+    return 0;
+}
