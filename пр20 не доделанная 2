@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int size;
+    char symbol;
+
+    cout << "Фигура: \"Змейка\"" << endl;
+
+    cout << "Размер: ";
+    cin >> size;
+
+    cout << "Текстура: ";
+    cin >> symbol;
+
+    cout << "\n Резльтат: \n";
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (i % 2 ==0) {
+                cout << symbol << " ";
+            }
+            else {
+                if (j % 2 == 0) {
+                    cout << symbol << " ";
+                }
+                else {
+                    cout << " ";
+                }
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
