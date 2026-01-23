@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int size;
+    char symbol;
+
+    cout << "Фигура: \"Плюс\"" << endl;
+
+    cout << "Размер: ";
+    cin >> size;
+
+    cout << "Текстура: ";
+    cin >> symbol;
+
+    cout << "\n Резльтат: \n";
+
+    for (int row = 0; row < size; row++) {
+        for (int col = 0; col < size; col++) {
+            if (row == size / 2 || col == size / 2) {
+                cout << symbol << " ";
+            }
+            else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
