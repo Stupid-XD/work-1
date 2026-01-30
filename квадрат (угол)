@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int size;
+
+    cout << "введите размер: ";
+    cin >> size;
+
+    for (int row = 0; row < size; row++) {
+        for (int col = 0; col < size; col++) {
+            if (row >= size / 2 && col >= size / 2) {
+                cout << "* ";
+            }
+            else {
+                cout << ". ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
+   
