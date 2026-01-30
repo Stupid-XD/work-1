@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int size;
+
+    cout << "введите размер: ";
+    cin >> size;
+
+    const string RESET = "\033[0m";
+    const string GREEN = "\033[32m";
+    const string RED = "\033[31m";
+    const string ORANGE = "\033[38;5;214m";
+
+    cout << endl;
+
+    for (int row = 0; row < size; row++) {
+        for (int col = 0; col < size; col++) {
+            bool top = row < size / 2;
+            bool left = col < size / 2;
+
+            if (!top && !left) {
+                cout << "* ";
+            }
+            else if (top && left) {
+                cout << GREEN << ". " << RESET;
+            }
+            else if (!top && left) {
+                cout << RED << ". " << RESET;
+            }
+
+            else {
+                cout << ORANGE << ". " << RESET;
+            }
+        }
+        cout << endl;
+    }
+  
+
+    return 0;
+}
