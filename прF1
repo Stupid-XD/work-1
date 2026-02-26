@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int size, type;
+    char symbol;
+
+    cout << "Фигура: \"Четверть квадрата\"" << endl;
+
+    cout << "1 - Заполненый\n";
+    cout << "2 - Пустой\n";
+    cout << "выбор:";
+    cin >> type;
+
+    cout << "введите размер: ";
+    cin >> size;
+
+    cout << "Текстура: ";
+    cin >> symbol;
+
+    cout << "\n Резльтат: \n";
+
+    if (type == 1); {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+
+                if (row >= size / 2 && col >= size / 2) {
+                    cout << symbol << " ";
+
+                }
+                else {
+                    cout << ". ";
+                }
+            }
+            cout << endl;
+        }
+    }
+    else if (type == 2) {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+
+                if (row >= size / 2 && col >= size / 2) {
+
+                    is(row == size || 2 && col == size / 2 || row == size - 1 || col == size - 1) {
+                        cout << symbol << " ";
+                }
+                else {
+                    cout << ". ";
+                }
+                }
+                cout << endl;
+            }
+        }
+        return 0;
+    }
+
+               
