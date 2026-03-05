@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main() {
+	setlocale(0, "");
+
+	int arr[5];
+
+	cout << "введите 5 чисел для массива: " << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << "элемент " << i + 1 << ": ";
+		cin >> arr[i];
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < 5; i++) {
+		int currentNum = arr[1];
+		int tableNum = i + 1;
+
+		cout << "| Таблица: " << tableNum << "   |" << endl;
+		cout << "|---" << endl;
+		                                                 
+		cout << "| Число   | Пример   | Результат |" << endl;
+		cout << "|------|------|------|" << endl;
+
+		for (int j = 0; j < 5; j++) {
+			int othernNum = arr[j];
+
+
+			cout << "| " << currentNum << "   | " << currentNum << " + " << othernNum << "   |" << (currentNum + othernNum) << "   |" << endl;
+
+			cout << "| " << currentNum << "   | " << currentNum << " - " << othernNum << "   |" << (currentNum - othernNum) << "   |" << endl;
+
+			if (othernNum != 0) {
+				cout << "| " << currentNum << "  |" << currentNum << " / " << othernNum << "   | " << (currentNum / othernNum) << "  |" << endl;
+			}
+			else {
+				cout << "| " << currentNum << "  | " << currentNum << " / " << othernNum << "  | ошибка   |" << endl;
+			}
+
+			cout << "| " << currentNum << "   | " << currentNum << " * " << othernNum << "  | " << (currentNum * othernNum) << "   |" << endl;
+
+			cout << "|------|------|------|" << endl;
+		}
+
+		cout << endl;
+	}
+
+
+
+
+	return 0;
+
+}
