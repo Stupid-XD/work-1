@@ -1,0 +1,165 @@
+#include <iostream>
+#include <cmath>
+#include <limits>
+#include <Windows.h>
+using namespace std;
+
+
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	int choice;
+	double num1, num2, result;
+	bool exitProgram = false;
+
+	while (!exitProgram) {
+
+		cout << "Выберите операцию:\n";
+		cout << "сложение | + (1)\n";
+		cout << "вычитание | - (2)\n";
+		cout << "умножение | * (3)\n";
+		cout << "деление | / (4)\n";
+		cout << "остаток от деления (5)\n";
+		cout << "возветение в степень (6)\n";
+		cout << "квадратный корень (7)\n";
+		cout << "возведение в куб (8)\n";
+		cout << "синус (9)\n";
+		cout << "косинус (10)\n";
+		cout << "выход (0)\n";
+		cout << "Ваш выбор: ";
+
+		cin >> choice;
+
+		if (cin.fail()) {
+			cin.clear();
+			
+			cout << "введите номер операции.\n\n";
+			continue;
+		}
+
+		if (choice == 0) {
+			cout << "бб\n";
+			exitProgram = true;
+			continue;
+		}
+
+		if (choice >= 7 && choice <= 10) {
+
+			cout << "введите число: ";
+			cin >> num1;
+
+			if (cin.fail())
+			{
+				cin.clear();
+				
+				cout << "введите корректное число (норм число пж) \n\n";
+				continue;
+			}
+
+			switch (choice) {
+			case 7:
+				if (num1 < 0) {
+					cout << "нельзя извлечь корень из отриц. числа\n\n";
+				}
+				else {
+					result = sqrt(num1);
+					cout << "корень" << num1 << " = " << result << "\n\n";
+				}
+				break;
+
+			case 8:
+				result = pow(num1, 3);
+				cout << num1 << " = " << result << "\n\n";
+				break;
+
+			case 9:
+				result = sin(num1);
+				cout << "sin(" << num1 << ") =" << result << "\n\n";
+				break;
+
+			case 10:
+				result = cos(num1);
+				cout << "cos(" << num1 << ") =" << result << "\n\n";
+				break;
+			}
+		}
+
+		else if (choice >= 1 && choice <= 6) {
+			cout << "введите число: ";
+			cin >> num1;
+
+			if (cin.fail()) {
+				cin.clear();
+				
+				cout << "введите корректное число \n\n";
+				continue;
+			}
+
+			cout << "введите второе число: ";
+			cin >> num2;
+
+			if (cin.fail()) {
+				cin.clear();
+				
+				cout << "введите корректное число \n\n";
+				continue;
+			}
+
+			switch (choice) {
+			case 1:
+				result = num1 + num2;
+				cout << num1 << "+" << num2 << "=" << result << "\n\n";
+				break;
+
+			case 2:
+				result = num1 - num2;
+				cout << num1 << "-" << num2 << "=" << result << "\n\n";
+				break;
+
+			case 3:
+				result = num1 * num2;
+				cout << num1 << "*" << num2 << "=" << result << "\n\n";
+				break;
+
+			case 4:
+				if (num2 == 0) {
+					cout << "нельзя делить на 0";
+				}
+				else {
+					result = num1 / num2;
+					cout << num1 << "/" << num2 << "=" << result << "\n\n";
+				}
+				break;
+
+			case 5:
+				if (num2 == 0) {
+					cout << "нельзя делить на 0";
+				}
+				else {
+					result = fmod(num1, num2);
+					cout << num1 << "%" << num2 << "=" << result << "\n\n";
+				}
+				break;
+
+			case 6:
+				result = pow(num1, num2);
+				cout << num1 << "^" << num2 << "=" << result << "\n\n";
+				break;
+			}
+		}
+		else {
+			cout << "выберите от 0 до 10 \n\n";
+		}
+
+
+	}
+
+
+
+
+
+
+	return 0;
+}
