@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+#include <Windows.h>
+using namespace std;
+
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	int arrInt[10] = { 1, 10, 20, 33, 45, 2, 5, 6, 7, 67 };
+	short arrShort[10] = { 5, 12, 4, 16, 76, 56, 25, 76, 78, 92 };
+	long arrLong[10] = { 1000, 2000, 3500, 4300, 5900, 6100, 7200, 8400, 9600, 10000 };
+	float arrFloat[10] = { 1.5, 2.9, 3.8, 4.1, 5.9, 6.2, 7.3, 8.2, 9.4, 10.0 };
+	double arrDouble[10] = { 1.412, 2.443432, 3.6235, 4.6934, 5.1551, 6.82149, 7.1252, 8.3351, 9.12435, 10.94912 };
+	char arrChar[10] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I' };
+	bool arrBool[10] = { true, false, true, false, true, false, true, false, true };
+	string arrString[10] = { "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять" };
+
+	cout << "Массив INT:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrInt[" << i << "]: значение: " << arrInt[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив SHORT:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrShort[" << i << "]: значение: " << arrShort[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив LONG:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrLong[" << i << "]: значение: " << arrLong[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив FLOAT:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrFloat[" << i << "]: значение: " << arrFloat[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив DOUBLE:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrDouble[" << i << "]: значение: " << arrDouble[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив CHAR:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrChar[" << i << "]: значение: " << arrChar[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив STRING:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrString[" << i << "]: значение: " << arrString[i] << endl;
+	}
+	cout << endl;
+
+	cout << "Массив INT:" << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << "arrInt[" << i << "]: значение: " << arrInt[i] << endl;
+	}
+	cout << endl;
+
+
+
+
+
+	return 0;
+
+}
