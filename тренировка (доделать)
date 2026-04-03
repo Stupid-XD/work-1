@@ -1,0 +1,216 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <ctime>
+#include <Windows.h>
+
+using namespace std;
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	struct Leader
+	{
+		int score;
+		int solvedExamples;
+	};
+
+	void clearInput(); {
+		cin.clear();
+	}
+
+	void waitForEnter(); {
+		cout << "\nНажмите Enter, чтобы продолжить";
+		clearInput();
+		cin.get();
+	}
+
+	void showMainMeun(); {
+		cout << "\n главное меню. \n";
+		cout << "1. \n";
+		cout << "2. \n";
+		cout << "3. \n";
+		cout << "0. \n";
+		cout << "выберерите действие: ";
+	}
+	int chooseDifficulty(); {
+		int choice;
+		cout << "\n выбор сложеости \n";
+		cout << "1. прибавить \n";
+		cout << "2. уменьшить \n";
+		cout << "3. умножить \n";
+		cout << "ваш выбор: ";
+		
+		cin >> choice;
+
+		while (choice < 1 || choice >3) {
+			cout << "выберите от 1 до 3: ";
+			cin >> choice;
+		}
+		return choice;
+	}
+
+	int getRandomNumber(int min, int max);
+	int min;
+	int max;
+	{
+		return min + rand() % (max - min + 1);
+	}
+
+	bool checkAnswer(int userAnswer, int correctAnswer);
+	int userAnswer;
+	int correctAnswer;
+	int difficulty;
+	{
+		return userAnswer == correctAnswer;
+	
+	}
+	Leader playGame(int difficukty); {
+		Leader result;
+		result.score = 0;
+		result.solvedExamples = 0;
+
+		int attempts = 5;
+		int pointsPerExample = 0;
+
+		switch (difficulty) {
+		case 1:
+			pointsPerExample = 1;
+			break;
+		case 2:
+			pointsPerExample = 2;
+			break;
+		case 3:
+			pointsPerExample = 3;
+			break;
+
+		}
+	
+		cout << "\n началась игра \n";
+		cout << "у вас" << attempts << "попыток \n";
+		cout << "правильный ответ приносит" << pointsPerExample << "очка(ов) \n";
+
+		while (attempts > 0) {
+			int a, b, correctAnswer;
+			char operation;
+
+			switch (difficulty) {
+			case 1:
+				a = getRandomNumber(1, 50);
+				b = getRandomNumber(1, 50);
+				correctAnswer = a + b; 
+				operation = '+';
+				break;
+
+			case 2:
+				a = getRandomNumber(1, 100);
+				b = getRandomNumber(1, 100);
+				correctAnswer = a - b;
+				operation = '-';
+				break;
+
+			case 3:
+				a = getRandomNumber(10, 100);
+				b = getRandomNumber(10, 100);
+				correctAnswer = a * b;
+				operation = '*';
+				break;
+			default:
+				correctAnswer = 0;
+				operation = '?';
+			}
+
+			cout << "\n попытка " << (6 - attempts) << "/5 решите пример: " << a << " " << operation << " " << b << " = ";
+			int userAnswer;
+			cin >> userAnswer;
+
+			if (checkAnswer(userAnswer, correctAnswer)) {
+
+				cout << "верно +" << pointsPerExample << " очка(ов) \n";
+				result.score = result.score + pointsPerExample;
+				result.solvedExamples + 1;
+			}
+			else {
+				cout << "неверно. Правильный ответ: " << correctAnswer << "\n";
+				attempts = attempts - 1;
+				cout << "осталось попыток: " << attempts << "\n";
+			}
+
+			if (attempts == 0) {
+				cout << "\nИгра окончена.\n";
+				break;
+			}
+
+
+			}
+
+		cout << "\n тог игры \n";
+		cout << "решено: " << result.solvedExamples << "\n";
+		cout << "всего очков: " << result.score << "\n";
+		waitForEnter();
+		return result;
+		}
+
+	int main(); {
+		srand(time(0));
+
+		int choice;
+		int difficulty = 1;
+		Leader bestResult; 
+		bestResult.score = 0;
+		bool exitGame = false;
+
+		while (exitGame == false) {
+			showMainMeun();
+			cin >> choice;
+
+			if (cin.fail()) {
+				clearInput();
+				cout << "введите от 0 до 3. \n";
+				waitForEnter();
+				continue;
+			}
+
+			if (choice == 1) {
+				Leader currentResult = playGame(difficulty);
+				if (currentResult.score > bestResult.score) {
+					bestResult.score = currentResult.score;
+					cout << "новый рекорд!\n";
+					waitForEnter();
+				}
+			}
+
+			else if (choice == 2) {
+				int newDiff = chooseDifficulty();
+				difficulty = newDiff;
+				cout << "сложность изменена.\n";
+				waitForEnter();
+			}
+			else if (choice == 3) {
+				cout << "\n таблица лидеров \n";
+				if (bestResult.solvedExamples == 0 && bestResult.score == 0) {
+					cout << "пока нет результатов.\n";
+				}
+				else {
+					cout << "лучший результат: \n";
+					cout << "решено примеров: " << bestResult.solvedExamples << "\n";
+					cout << "набрано очков: " << bestResult.score << "\n";
+				}
+				waitForEnter();
+			}
+			else if (choice == 4) {
+				cout << "выход из игры. \n";
+				exitGame = true;
+			}
+			else {
+				cout << "неверный выбор\n";
+				waitForEnter();
+			}
+		}
+
+
+	}
+	return 0;
+ 
+	}
