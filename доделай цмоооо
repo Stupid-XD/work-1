@@ -1,0 +1,167 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <ctime>
+#include <Windows.h>
+
+using namespace std;
+
+struct PlayerData {
+
+	int score;
+	int correctAnswers;
+	string difficulty;
+
+	PlayerData() : score(0), correctAnswers(0), difficulty("прибавить") {}
+};
+
+void showMainMenu();
+void startGame(PlayerData& player);
+void showSettings(PlayerData& player);
+void showLeaderboard(const PlayerData& player);
+int generateRandomNumber(int mi, int max);
+string getOperationSymbol(int difficultyLevel);
+int calculateAnswer(int num1, int num2, int difficultyLevel);
+int calculatePoints(int diffcultyLevel);
+
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	srand(time(0));
+
+	PlayerData player;
+	int choice;
+
+	do {
+		showMainMenu();
+		cin >> choice;
+
+		switch (choice) {
+		case 1:
+				startGame(player);
+				break;
+
+			case 2:
+				showSettings(player);
+					break;
+			case 3:
+				showLeaderboard(player);
+				break;
+			case 4:
+				cout << "бб" << endl;
+				break;
+			default:
+				cout << "неверный выбор" << endl;
+		}
+	} while (choice != 4);
+	
+	return 0;
+
+}
+
+void showMainMenu() {
+	cout << "1. начать игру " << endl;
+	cout << "2. настройки " << endl;
+	cout << "3. таблица лидеров " << endl;
+	cout << "4. выход " << endl;
+	cout << "выберите варивнт: ";
+}
+
+void startGame(PlayerData& player) {
+	int attempts = 3;
+	int roundScore = 0;
+	int correctInThisSession = 0;
+
+	cout << "у вас " << attempts << "попыток" << endl;
+	cout << "уровень сложности:" << player.difficulty << endl;
+
+	while (attempts > 0) {
+
+		int num1 = generateRandomNumber(1, 500);
+		int num2 = generateRandomNumber(1, 500);
+
+		int difficultyLevel;
+		if (player.difficulty == "прибавить") difficultyLevel = 1;
+		else if (player.difficulty == "уменьшить") difficultyLevel = 2;
+		else difficultyLevel = 3;
+
+		string operation = getOperationSymbol(difficultyLevel);
+		int correctAnswer = calculateAnswer(num1, num2, difficultyLevel);
+
+		cout << (3 - attempts + 1) << num1 << operation << num2 << " = ";
+		int userAnswer;
+		cin >> userAnswer;
+		
+		if (userAnswer == correctAnswer) {
+			int points = calculatePoints(difficultyLevel);
+			roundScore += points;
+			correctInThisSession++;
+			cout << "+" << points << endl; 
+		}
+		else {
+			attempts--;
+			cout << "верный ответ: " << correctAnswer << endl;
+			if (attempts > 0) {
+				cout << "осталось попыток: " << attempts << endl;
+ 			}
+		}
+		cout << endl;
+	}
+	if (attempts == 0) {
+		cout << "игра оконяена" << endl;
+		cout << "вы решили: " << correctInThisSession << " примеров" << endl;
+		cout << "вы набрали: " << roundScore << " очков" << endl;
+
+		player.score += roundScore;
+		player.correctAnswers += correctInThisSession;
+
+		cout << "нажмите Enter, чтобы продолжить";
+		cin.ignore();
+		cin.get();
+	}
+
+}
+
+void showSettings(PlayerData& player) {
+
+	int choice;
+
+	cout << "настройки" << endl;
+	cout << "1. прибавить (+10 очков)" << endl;
+	cout << "2. уменьшить (+20 очков)" << endl;
+	cout << "3. умножить (+30 очков)" << endl;
+	cout << "Текущий уровень: "<< player.difficulty << endl;
+	cout << "ваш выбор: ";
+	cin >> choice;
+
+		switch (choice) {
+		case 1:
+			player.difficulty = "прибавить";
+			cout << "уровень прибавить" << endl;
+			break;
+
+		case 2:
+			player.difficulty = "уменьшить";
+			cout << "уровень уменньшить" << endl;
+			break;
+		
+		case 3:
+			player.difficulty = "умножить =";
+			cout << "уровень умнодить" << endl;
+			break;
+		
+		default:
+			cout << "неверный выбор уровни" << endl;
+		}
+
+		cout << "нажмите Enter, чтобы продолжить";
+			cin.ignore();
+			cin.get();
+}
+
+void showLeaderboard(const PlayerData& player) {
+
+	cout << "таблица лидеров" << endl;
+}
