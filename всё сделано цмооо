@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <ctime>
+#include <string>
+#include <algorithm>
+#include <vector>
 #include <Windows.h>
 
 using namespace std;
@@ -40,23 +42,23 @@ int main() {
 
 		switch (choice) {
 		case 1:
-				startGame(player);
-				break;
+			startGame(player);
+			break;
 
-			case 2:
-				showSettings(player);
-					break;
-			case 3:
-				showLeaderboard(player);
-				break;
-			case 4:
-				cout << "бб" << endl;
-				break;
-			default:
-				cout << "неверный выбор" << endl;
+		case 2:
+			showSettings(player);
+			break;
+		case 3:
+			showLeaderboard(player);
+			break;
+		case 4:
+			cout << "бб" << endl;
+			break;
+		default:
+			cout << "неверный выбор" << endl;
 		}
 	} while (choice != 4);
-	
+
 	return 0;
 
 }
@@ -74,7 +76,7 @@ void startGame(PlayerData& player) {
 	int roundScore = 0;
 	int correctInThisSession = 0;
 
-	cout << "у вас " << attempts << "попыток" << endl;
+	cout << "у вас " << attempts << " попыток" << endl;
 	cout << "уровень сложности:" << player.difficulty << endl;
 
 	while (attempts > 0) {
@@ -90,22 +92,22 @@ void startGame(PlayerData& player) {
 		string operation = getOperationSymbol(difficultyLevel);
 		int correctAnswer = calculateAnswer(num1, num2, difficultyLevel);
 
-		cout << (3 - attempts + 1) << num1 << operation << num2 << " = ";
+		cout << "пример " << (3 - attempts + 1) << ": " << num1 << " " << operation << " " << num2 << " = ";
 		int userAnswer;
 		cin >> userAnswer;
-		
+
 		if (userAnswer == correctAnswer) {
 			int points = calculatePoints(difficultyLevel);
 			roundScore += points;
 			correctInThisSession++;
-			cout << "+" << points << endl; 
+			cout << "+" << points << endl;
 		}
 		else {
 			attempts--;
 			cout << "верный ответ: " << correctAnswer << endl;
 			if (attempts > 0) {
 				cout << "осталось попыток: " << attempts << endl;
- 			}
+			}
 		}
 		cout << endl;
 	}
@@ -117,7 +119,7 @@ void startGame(PlayerData& player) {
 		player.score += roundScore;
 		player.correctAnswers += correctInThisSession;
 
-		cout << "нажмите Enter, чтобы продолжить";
+		cout << "\nнажмите Enter, чтобы продолжить";
 		cin.ignore();
 		cin.get();
 	}
@@ -132,36 +134,75 @@ void showSettings(PlayerData& player) {
 	cout << "1. прибавить (+10 очков)" << endl;
 	cout << "2. уменьшить (+20 очков)" << endl;
 	cout << "3. умножить (+30 очков)" << endl;
-	cout << "Текущий уровень: "<< player.difficulty << endl;
+	cout << "Текущий уровень: " << player.difficulty << endl;
 	cout << "ваш выбор: ";
 	cin >> choice;
 
-		switch (choice) {
-		case 1:
-			player.difficulty = "прибавить";
-			cout << "уровень прибавить" << endl;
-			break;
+	switch (choice) {
+	case 1:
+		player.difficulty = "прибавить";
+		cout << "уровень прибавить" << endl;
+		break;
 
-		case 2:
-			player.difficulty = "уменьшить";
-			cout << "уровень уменньшить" << endl;
-			break;
-		
-		case 3:
-			player.difficulty = "умножить =";
-			cout << "уровень умнодить" << endl;
-			break;
-		
-		default:
-			cout << "неверный выбор уровни" << endl;
-		}
+	case 2:
+		player.difficulty = "уменьшить";
+		cout << "уровень уменньшить" << endl;
+		break;
 
-		cout << "нажмите Enter, чтобы продолжить";
-			cin.ignore();
-			cin.get();
+	case 3:
+		player.difficulty = "умножить =";
+		cout << "уровень умнодить" << endl;
+		break;
+
+	default:
+		cout << "неверный выбор уровни" << endl;
+	}
+
+	cout << "\nнажмите Enter, чтобы продолжить";
+	cin.ignore();
+	cin.get();
 }
 
 void showLeaderboard(const PlayerData& player) {
 
 	cout << "таблица лидеров" << endl;
+	cout << "ваша текущая статистика: " << endl;
+	cout << "решено примеров: " << player.correctAnswers << endl;
+	cout << "всего очков: " << player.score << endl;
+	cout << "текущий уровень: " << player.difficulty << endl;
+
+	cout << "\nнажмите Enter, чтобы продолжить";
+	cin.ignore();
+	cin.get();
+}
+
+int generateRandomNumber(int min, int max) {
+	return min + rand() % (max - min + 1);
+}
+
+string getOperationSymbol(int difficultyLevel) {
+	switch (difficultyLevel) {
+	case 1: return "+";
+	case 2: return "-";
+	case 3: return "*";
+	default: return "+";
+	}
+}
+
+int calculateAnswer(int num1, int num2, int difficultyLevel) {
+	switch (difficultyLevel) {
+	case 1: return num1 + num2;
+	case 2: return num1 - num2;
+	case 3: return num1 * num2;
+	default: return num1 + num2;
+	}
+}
+
+int calculatePoints(int difficultyLevel) {
+	switch (difficultyLevel) {
+	case 1: return 10;
+	case 2: return 20;
+	case 3: return 30;
+	default: return 10;
+	}
 }
