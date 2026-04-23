@@ -1,0 +1,109 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <Windows.h>
+using namespace std;
+
+
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	vector<int> vectorInt;
+	for (int i = 1; i <= 10; i++) {
+		vectorInt.push_back(i * 3);
+	}
+
+	vector<short> vectorShort;
+	for (short i = 1; i <= 10; i++) {
+		vectorShort.push_back(i * 5);
+	}
+
+	vector<long> vectorLong;
+	for (long i = 1; i <= 10; i++) {
+		vectorLong.push_back(i * 100L);
+	}
+
+	vector<float> vectorFloat;
+	for (float i = 1; i <= 10; i++) {
+		vectorFloat.push_back(i * 1.5f);
+	}
+
+	vector<double> vectorDouble;
+	for (double i = 1; i <= 10; i++) {
+		vectorDouble.push_back(i * 2.5);
+	}
+
+	vector<char> vectorChar;
+	for (char c = 1; c <= 'j'; c++) {
+		vectorChar.push_back(c);
+	}
+
+	vector<bool> vectorBool;
+	for (int i = 1; i <= 10; i++) {
+		vectorBool.push_back(i % 2 == 0);
+	}
+
+	vector<string> vectorString;
+	vectorString.push_back("apple");
+	vectorString.push_back("banana");
+	vectorString.push_back("cherry");
+	vectorString.push_back("date");
+	vectorString.push_back("elderberry");
+	vectorString.push_back("fig");
+	vectorString.push_back("grape");
+	vectorString.push_back("honeydew");
+	vectorString.push_back("kiwi");
+	vectorString.push_back("lemon");
+	
+	cout << "[+] Вектор INT: " << endl;
+	for (int i = 0; i < vectorInt.size(); i++) {
+		cout << "[+] vectorInt[" << i << "] значение: " << vectorInt[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор SHORT: " << endl;
+	for (int i = 0; i < vectorShort.size(); i++) {
+		cout << "[+] vectorShort[" << i << "] значение: " << vectorShort[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор LONG: " << endl;
+	for (int i = 0; i < vectorLong.size(); i++) {
+		cout << "[+] vectorLong[" << i << "] значение: " << vectorLong[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор FLOAT: " << endl;
+	for (int i = 0; i < vectorFloat.size(); i++) {
+		cout << "[+] vectorFloat[" << i << "] значение: " << vectorFloat[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор DOUBLE: " << endl;
+	for (int i = 0; i < vectorDouble.size(); i++) {
+		cout << "[+] vectorDouble[" << i << "] значение: " << vectorDouble[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор CHAR: " << endl;
+	for (int i = 0; i < vectorChar.size(); i++) {
+		cout << "[+] vectorChar[" << i << "] значение: " << vectorChar[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор BOOL: " << endl;
+	for (int i = 0; i < vectorBool.size(); i++) {
+		cout << "[+] vectorBool[" << i << "] значение: " << vectorBool[i] << endl;
+	}
+	cout << endl;
+
+	cout << "[+] Вектор STRING: " << endl;
+	for (int i = 0; i < vectorString.size(); i++) {
+		cout << "[+] vectorString[" << i << "] значение: " << vectorString[i] << endl;
+	}
+	cout << endl;
+
+	return 0;
+}
