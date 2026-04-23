@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string>
+#include <Windows.h>
+using namespace std;
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	class Cat {
+	private:
+		string name;
+		string color;
+		string breed;
+		int age;
+
+	public:
+
+		void setName(string n) {
+			name = n;
+		}
+
+		string getName() {
+			return name;
+		}
+
+		void setColor(string c) {
+			color = c;
+		}
+
+		string getColor() {
+			return color;
+		}
+
+		void setBreed(string b) {
+			breed = b;
+		}
+
+		string getBreed() {
+			return breed;
+		}
+
+		void setAge(int a) {
+			age = a;
+		}
+
+		int getAge() {
+			return age;
+		}
+
+		void run() {
+			cout << "Кот " << name << " Бегает, кушает, мурлыкает" << endl;
+		}
+
+		void eat() {
+			cout << "Кот " << name << " Спит, лежит, шапит" << endl;
+		}
+
+		void purr() {
+			cout << "Кот " << name << " стоит, сидит, смотрит" << endl;
+		}
+	};
+
+	int main(); {
+
+		Cat Cat1;
+		Cat Cat2;
+		Cat Cat3;
+
+		Cat1.setName("Муся");
+		Cat1.setColor("Чёрный");
+		Cat1.setAge(3);
+
+		Cat2.setName("Барсик");
+		Cat2.setColor("Рыжий");
+		Cat2.setAge(4);
+
+		Cat3.setName("Мурка");
+		Cat3.setColor("Белый");
+		Cat3.setAge(5);
+
+		cout << "[-] Программа \"Классы и объекты\"" << endl;
+
+		cout << "[1] Объект: " << endl;
+		cout << "Имя: " << Cat1.getName() << endl;
+		cout << "Цвет: " << Cat1.getColor() << endl;
+		cout << "Возраст: " << Cat1.getAge() << " года" << endl;
+		cout << "Метод: ";
+		Cat1.run();
+		cout << "     ";
+
+		cout << "[2] Объект: " << endl;
+		cout << "Имя: " << Cat2.getName() << endl;
+		cout << "Цвет: " << Cat2.getColor() << endl;
+		cout << "Возраст: " << Cat2.getAge() << " года" << endl;
+		cout << "Метод: ";
+		Cat2.eat();
+		cout << "     ";
+
+		cout << "[3] Объект: " << endl;
+		cout << "Имя: " << Cat3.getName() << endl;
+		cout << "Цвет: " << Cat3.getColor() << endl;
+		cout << "Возраст: " << Cat3.getAge() << " лет" << endl;
+		cout << "Метод: ";
+		Cat3.purr();
+		cout << "     ";
+	}
+
+
+	return 0;
+}
