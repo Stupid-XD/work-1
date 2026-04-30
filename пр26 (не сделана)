@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cmath>
+#include <Windows.h>
+#include <string>
+
+using namespace std;
+
+int main() {
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+
+	class Time { 
+	private:
+		int hour, minute, second;
+
+	public:
+		Time() {
+			hour = 0;
+			minute = 0;
+			second = 0;
+			cout << "00:00:00" << endl;
+		}
+
+		Time(int h,int m, int s) {
+			hour = h;
+			minute = m;
+			second = s;
+			cout << (hour < 10 ? "0" : "") << hour << ":"
+				 << (minute < 10 ? "0" : "") << minute << ":"
+				 << (second < 10 ? "0" : "") << second << endl;
+		}
+
+		int GetHours() {
+			return hour;
+		}
+
+		int GetMinutes() {
+			return minute;
+		}
+
+		int GetSeconds() {
+			return second;
+		}
+
+		string GetTime() {
+			string h = (hour < 10 ? "0" : "") + to_string(hour);
+			string m = (minute < 10 ? "0" : "") + to_string(minute);
+			string s = (second < 10 ? "0" : "") + to_string(second);
+			return h + ":" + m + ":" + s;
+		}
+
+	};
+
+
+
+
+	return 0;
+}
